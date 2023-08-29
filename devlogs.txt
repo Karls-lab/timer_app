@@ -1,0 +1,5 @@
+New Features I want to add:
+
+1. Add option for custom time 
+
+2. Add a way for the timer to notify user, either with notifications and or sound
