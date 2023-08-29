@@ -1,7 +1,8 @@
 import tkinter as tk
 import tkinter.font as font
 from controller import controller
-from player import notfification
+from plyer import notification
+
 
 class TimerView(tk.Tk):
     def __init__(self, controller):
@@ -55,10 +56,10 @@ class TimerView(tk.Tk):
         self.display.after(1000, self.update_clock)
 
         # Check if timer is done
-        if self.controller.get_time() == "00:00":
+        if self.controller.check_time():
             self.controller.stop_timer()
             self.controller.reset_timer()
-            notfification.notify("Timer Done!")
+            notification.notify("Timer Done!")
 
         
         
