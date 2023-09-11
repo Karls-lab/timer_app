@@ -2,13 +2,15 @@ import tkinter as tk
 import tkinter.font as font
 from controller import controller
 from plyer import notification
+from playsound import playsound
+import os
 
 
 class TimerView(tk.Tk):
     def __init__(self, controller):
         super().__init__()
         self.controller = controller
-        self.title("Timer App")
+        self.title("Karl's Timer")
         self.geometry("600x400")
         self.larger_font = font.Font(size=20)
 
@@ -55,11 +57,14 @@ class TimerView(tk.Tk):
         self.display.insert("1.5", self.controller.get_time(), "center")
         self.display.after(1000, self.update_clock)
 
-        # Check if timer is done
+        # Check if timer is done, send notification and play sound
         if self.controller.check_time():
             self.controller.stop_timer()
             self.controller.reset_timer()
             notification.notify("Timer Done!")
+            root_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+            playsound(os.path.join(root_path,'sounds/oversimplified-alarm-clock-113180.mp3'))
+
 
         
         

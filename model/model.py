@@ -7,7 +7,7 @@ class TimerModel:
         self.end_datetime = None
 
     def set_30_min(self):
-        self.minutes = timedelta(minutes = 30)
+        self.minutes = timedelta(minutes = .1)
         self.time_left = self.minutes
 
     def start_timer(self):
