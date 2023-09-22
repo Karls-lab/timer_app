@@ -6,6 +6,11 @@ class TimerController():
     def __init__(self, model, view):
         self.model = model
         self.view = view
+
+    def get_saved_time(self):
+        self.model.get_saved_time()
+        self.view.display.delete("1.0", "end")
+        self.view.display.insert("1.0", self.model.get_time(), "center")
      
     def set_30_min(self):
         self.model.set_30_min()
