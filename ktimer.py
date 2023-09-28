@@ -16,6 +16,9 @@ class App():
         """Initialize the saved time"""
         main_controller.get_saved_time()
 
+        """Save time when closing the app"""
+        main_controller.view.protocol("WM_DELETE_WINDOW", main_controller.stop_timer)
+
         """Start the app"""
         main_controller.view.mainloop()
 

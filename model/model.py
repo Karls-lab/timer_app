@@ -56,12 +56,13 @@ class TimerModel:
         """Get remaining time from a file"""
         with open(os.path.join(self.getTimerAppFolder(), "savedTime.txt"), "r") as f:
             time = f.read()
-            if time != "":
-                hours = int(time.split(":")[0])
-                minutes = int(time.split(":")[1])
-                seconds = int(time.split(":")[2])
-                self.minutes = timedelta(hours=hours, minutes=minutes, seconds=seconds)
-                self.time_left = timedelta(hours=hours, minutes=minutes, seconds=seconds)
+            if time == "":
+                return 
+            hours = int(time.split(":")[0])
+            minutes = int(time.split(":")[1])
+            seconds = int(time.split(":")[2])
+            self.minutes = timedelta(hours=hours, minutes=minutes, seconds=seconds)
+            self.time_left = timedelta(hours=hours, minutes=minutes, seconds=seconds)
 
 
     def reset_timer(self):
