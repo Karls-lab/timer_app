@@ -20,6 +20,8 @@ class TimerView(tk.Tk):
         self.display.tag_configure("center", justify='center')
         self.min_30_button = tk.Button(
             self, text='30 min', font = self.larger_font, command=lambda: self.controller.set_30_min()) 
+        self.set_custom_time_button = tk.Button(
+            self, text='Custom', font = self.larger_font, command=lambda: self.controller.set_custom_time())
         self.start_button = tk.Button(
             self, text='Start', font = self.larger_font, command=lambda: self.controller.start_timer()) 
         self.stop_button= tk.Button(
@@ -35,6 +37,7 @@ class TimerView(tk.Tk):
 
         # Row 1
         self.min_30_button.grid(row=1, column=1, columnspan=1, sticky="nsew")
+        self.set_custom_time_button.grid(row=1, column=2, columnspan=1, sticky="nsew")
 
         # Row 2
         self.start_button.grid(row=2, column=0, sticky="nsew")
